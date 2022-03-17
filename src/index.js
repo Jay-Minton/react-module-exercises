@@ -1,17 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import foodArray from "./foods";
+import { choice, remove } from "./helpers";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const randoFruit = foodArray[choice(foodArray)];
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+console.log(`I'd like one ${randoFruit} Please`);
+console.log(`Here you go:${randoFruit}`);
+console.log(`Delicious! May I have another?`);
+let foodsLeft = remove(foodArray, randoFruit);
+console.log(`I'm sorry we're all out. We have ${foodsLeft.length} left.`);
